@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resume Builder</title>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <h1>Resume Builder</h1>
+    <form id="resume-form">
+      <section>
+        <p>Personal</p>
+        <input type="text" id="name" placeholder="Full Name" />
+        <input type="tel" id="phone-number" placeholder="Phone Number" />
+        <input type="text" id="location" placeholder="Location" />
+        <input type="url" class="link" placeholder="Link" />
+        <button type="button">Add Link</button>
+      </section>
+      <section>
+        <p>Education</p>
+        <input type="text" id="school" placeholder="School" />
+        <input type="text" id="degree" placeholder="Degree" />
+        <input type="month" id="graduation" />
+        <input type="number" id="gpa" placeholder="GPA" step="0.01" />
+        <button type="button">Add Education</button>
+      </section>
+      <section>
+        <p>Experience</p>
+        <div class="block">
+          <input type="text" class="job-title" placeholder="Job Title" />
+          <input type="text" class="company-name" placeholder="Company Name" />
+          <input type="text" class="location" placeholder="Location" />
+          <input type="month" class="start-date" />
+          <input type="month" class="end-date" />
+          <textarea class="description" placeholder="Description"></textarea>
+        </div>
+        <button type="button">Add Experience</button>
+      </section>
+      <section>
+        <p>Projects</p>
+        <div class="block">
+          <input type="text" class="project-title" placeholder="Project" />
+          <input type="text" class="tech" placeholder="Technologies Used" />
+          <input type="text" class="description" placeholder="Description" />
+        </div>
+      </section>
+      <section>
+        <p>Technical Skills</p>
+        <input type="text" id="languages" placeholder="Languages" />
+        <input type="text" id="libs-fwks" placeholder="Libraries/Frameworks" />
+        <input type="text" id="dev-tools" placeholder="Developer Tools" />
+      </section>
+      <section>
+        <button>Generate</button>
+        <button type="reset">Clear</button>
+      </section>
+    </form>
+    <script type="module" src="js/index.js"></script>
+  </body>
+</html>

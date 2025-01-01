@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0 auto;
+  max-width: 720px;
+  padding: 12px 48px;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 12px 0;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

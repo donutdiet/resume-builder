@@ -1,21 +1,33 @@
 import { renderForm } from "./render/renderForm.js";
+import { bindDialogEvents } from "./render/eventListeners.js";
+import * as resumeForm from "./components/resumeSections.js";
 
-renderForm();
+let state = {
+  personal: {
+    visible: true,
+    createComponent: resumeForm.createPersonalSection,
+  },
+  education: {
+    visible: true,
+    createComponent: resumeForm.createEducationSection,
+  },
+  experience: {
+    visible: true,
+    createComponent: resumeForm.createExperienceSection,
+  },
+  projects: {
+    visible: true,
+    createComponent: resumeForm.createProjectsSection,
+  },
+  skills: {
+    visible: true,
+    createComponent: resumeForm.createSkillsSection,
+  },
+};
 
-const dialog = document.querySelector("dialog");
-const showDialogBtn = document.querySelector("#dialog-toggle-btn");
-const closeDialogBtn = document.querySelector("#close-dialog-btn");
+function initialize() {
+  renderForm(state);
+  bindDialogEvents();
+}
 
-showDialogBtn.addEventListener("click", () => {
-  dialog.showModal();
-});
-
-closeDialogBtn.addEventListener("click", () => {
-  dialog.close();
-});
-
-dialog.addEventListener("click", (e) => {
-  if (e.target === dialog) {
-    dialog.close();
-  }
-});
+initialize();

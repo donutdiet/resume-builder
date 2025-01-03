@@ -7,8 +7,51 @@
     <link rel="stylesheet" href="main.css" />
   </head>
   <body>
-    <h1>Resume Builder</h1>
-    <form id="resume-form"></form>
+    <dialog>
+      <form>
+        <div id="personal">
+          <input type="checkbox" />
+          <p>Personal</p>
+        </div>
+        <div id="education">
+          <input type="checkbox" />
+          <p>Education</p>
+        </div>
+        <div id="experience">
+          <input type="checkbox" />
+          <p>Experience</p>
+        </div>
+        <div id="projects">
+          <input type="checkbox" />
+          <p>Projects</p>
+        </div>
+        <div id="skills">
+          <input type="checkbox" />
+          <p>Technical Skills</p>
+        </div>
+        <button id="save-dialog-btn" autofocus>Save</button>
+        <button type="button" id="close-dialog-btn">Cancel</button>
+      </form>
+    </dialog>
+    <main>
+      <header>
+        <svg
+          id="dialog-toggle-btn"
+          xmlns="http://www.w3.org/2000/svg"
+          height="24px"
+          viewBox="0 -960 960 960"
+          width="24px"
+          fill="hsl(0 0% 0%)"
+        >
+          <path
+            d="M360-200v-80h480v80H360Zm0-240v-80h480v80H360Zm0-240v-80h480v80H360ZM200-160q-33 0-56.5-23.5T120-240q0-33 23.5-56.5T200-320q33 0 56.5 23.5T280-240q0 33-23.5 56.5T200-160Zm0-240q-33 0-56.5-23.5T120-480q0-33 23.5-56.5T200-560q33 0 56.5 23.5T280-480q0 33-23.5 56.5T200-400Zm0-240q-33 0-56.5-23.5T120-720q0-33 23.5-56.5T200-800q33 0 56.5 23.5T280-720q0 33-23.5 56.5T200-640Z"
+          />
+        </svg>
+        <h1>Resume Builder</h1>
+        <div>Links</div>
+      </header>
+      <form id="resume-form"></form>
+    </main>
     <script type="module" src="js/index.js"></script>
   </body>
 </html>

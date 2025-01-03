@@ -1,4 +1,4 @@
-import { createInput, createButton } from "./input.js";
+import { createInput, createButton } from "../helpers/input.js";
 
 export function createPersonalSection() {
   const section = document.createElement("section");

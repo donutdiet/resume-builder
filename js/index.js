@@ -1,16 +1,21 @@
-import * as resumeForm from "./helpers/components.js";
+import { renderForm } from "./render/renderForm.js";
 
-const FORM = document.querySelector("#resume-form");
-const personalSection = resumeForm.createPersonalSection();
-const educationSection = resumeForm.createEducationSection();
-const experienceSection = resumeForm.createExperienceSection();
-const projectsSection = resumeForm.createProjectsSection();
-const skillsSection = resumeForm.createSkillsSection();
-const buttonSection = resumeForm.createButtonSection();
+renderForm();
 
-FORM.appendChild(personalSection);
-FORM.appendChild(educationSection);
-FORM.appendChild(experienceSection);
-FORM.appendChild(projectsSection);
-FORM.appendChild(skillsSection);
-FORM.appendChild(buttonSection);
+const dialog = document.querySelector("dialog");
+const showDialogBtn = document.querySelector("#dialog-toggle-btn");
+const closeDialogBtn = document.querySelector("#close-dialog-btn");
+
+showDialogBtn.addEventListener("click", () => {
+  dialog.showModal();
+});
+
+closeDialogBtn.addEventListener("click", () => {
+  dialog.close();
+});
+
+dialog.addEventListener("click", (e) => {
+  if (e.target === dialog) {
+    dialog.close();
+  }
+});

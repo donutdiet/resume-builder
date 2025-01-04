@@ -12,7 +12,15 @@ export function bindDialogEvents() {
   });
 
   dialog.addEventListener("click", (e) => {
-    if (e.target === dialog) {
+    // Ensure it's a click on the backdrop, not on the content
+    const rect = dialog.getBoundingClientRect();
+    const isInDialogContent =
+      e.clientX >= rect.left &&
+      e.clientX <= rect.right &&
+      e.clientY >= rect.top &&
+      e.clientY <= rect.bottom;
+
+    if (!isInDialogContent) {
       dialog.close();
     }
   });

@@ -1,9 +1,9 @@
 import { createInput, createButton } from "../helpers/input.js";
+import { createParagraph } from "../helpers/text.js";
 
 export function createPersonalSection() {
   const section = document.createElement("section");
-  const label = document.createElement("p");
-  label.textContent = "Personal";
+  const label = createParagraph("Personal");
 
   const nameInput = createInput("text", "Full Name", "name");
   const phoneNumberInput = createInput("tel", "Phone Number", "phone");
@@ -26,8 +26,7 @@ export function createPersonalSection() {
 
 export function createEducationSection() {
   const section = document.createElement("section");
-  const label = document.createElement("p");
-  label.textContent = "Education";
+  const label = createParagraph("Education");
 
   const schoolInput = createInput("text", "School", "school");
   const degreeInput = createInput("text", "Degree", "degree");
@@ -52,8 +51,7 @@ export function createEducationSection() {
 
 export function createExperienceSection() {
   const section = document.createElement("section");
-  const label = document.createElement("p");
-  label.textContent = "Experience";
+  const label = createParagraph("Experience");
 
   const jobTitleInput = createInput("text", "Job Title", null, ["job-title"]);
   const companyInput = createInput("text", "Company Name", null, ["company"]);
@@ -82,8 +80,7 @@ export function createExperienceSection() {
 
 export function createProjectsSection() {
   const section = document.createElement("section");
-  const label = document.createElement("p");
-  label.textContent = "Projects";
+  const label = createParagraph("Projects");
 
   const projectInput = createInput("text", "Project Name", null, ["project"]);
   const techInput = createInput("text", "Technologies Used", null, ["tech"]);
@@ -108,8 +105,7 @@ export function createProjectsSection() {
 
 export function createSkillsSection() {
   const section = document.createElement("section");
-  const label = document.createElement("p");
-  label.textContent = "Technical Skills";
+  const label = createParagraph("Technical Skills");
 
   const languagesInput = createInput("text", "Languages", "languages");
   const libInput = createInput("text", "Libraries/Frameworks", "libs-fwks");

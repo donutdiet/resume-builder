@@ -1,13 +1,17 @@
+import { renderStateComponents } from "./renderState.js";
+
 export function bindDialogEvents() {
   const dialog = document.querySelector("dialog");
   const showDialogBtn = document.querySelector("#dialog-toggle-btn");
   const closeDialogBtn = document.querySelector("#close-dialog-btn");
 
   showDialogBtn.addEventListener("click", () => {
+    renderStateComponents();
     dialog.showModal();
   });
 
   closeDialogBtn.addEventListener("click", () => {
+    console.log("Trying to cancel");
     dialog.close();
   });
 

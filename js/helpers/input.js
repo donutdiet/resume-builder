@@ -19,13 +19,23 @@ export function createInput(
   return input;
 }
 
-export function createButton(type, text, id = null, classList = []) {
+export function createButton(
+  type,
+  text,
+  id = null,
+  classList = [],
+  attributes = {}
+) {
   const button = document.createElement("button");
   button.type = type;
   button.textContent = text;
 
   if (id) button.id = id;
   classList.forEach((className) => button.classList.add(className));
+
+  for (let key in attributes) {
+    button.setAttribute(key, attributes[key]);
+  }
 
   return button;
 }

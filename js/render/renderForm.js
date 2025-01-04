@@ -9,4 +9,5 @@ export function renderForm(state) {
       FORM.appendChild(sectionComponent);
     }
   }
+  FORM.appendChild(resumeForm.createButtonSection());
 }

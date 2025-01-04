@@ -31,13 +31,13 @@ dialog {
   z-index: 1;
 }
 
-dialog > form {
+dialog > ul {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
-dialog > form > div {
+dialog > ul > li {
   display: flex;
   gap: 4px;
 }

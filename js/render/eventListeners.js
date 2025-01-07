@@ -1,4 +1,4 @@
-import { renderStateComponents } from "./renderState.js";
+import { renderDialogState, renderStateComponents } from "./renderState.js";
 
 // Elements that will always persist in the DOM
 const dialog = document.querySelector("dialog");
@@ -6,8 +6,6 @@ const showDialogBtn = document.querySelector("#dialog-toggle-btn");
 
 export function bindHeaderEvents() {
   showDialogBtn.addEventListener("click", () => {
-    // re-render section editor dialog to match state (idk yet if necessary)
-    renderStateComponents();
     // re-bind dialog events since DOM elements were re-rendered
     bindDialogEvents();
     dialog.showModal();
@@ -15,11 +13,16 @@ export function bindHeaderEvents() {
 }
 
 export function bindDialogEvents() {
+  const saveDialogBtn = document.querySelector("#save-dialog-btn");
   const closeDialogBtn = document.querySelector("#close-dialog-btn");
+
+  saveDialogBtn.addEventListener("click", (e) => {});
 
   // Section editor cancel button event
   closeDialogBtn.addEventListener("click", (e) => {
     dialog.close();
+    // cancel potential changes and re-render section editor to previous state
+    renderDialogState();
   });
 
   // Section editor cancel when clicking outside of dialog event
@@ -34,6 +37,8 @@ export function bindDialogEvents() {
 
     if (!isInDialogContent) {
       dialog.close();
+      // cancel potential changes and re-render section editor to previous state
+      renderDialogState();
     }
   });
 }

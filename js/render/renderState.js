@@ -2,30 +2,37 @@ import { renderForm } from "./renderForm.js";
 import * as resumeForm from "../components/resumeSections.js";
 import { renderSectionEditor } from "./renderSelectionEditor.js";
 
+const STATE_COMPONENT_RENDERERS = {
+  personal: resumeForm.createPersonalSection,
+  education: resumeForm.createEducationSection,
+  experience: resumeForm.createExperienceSection,
+  projects: resumeForm.createProjectsSection,
+  skills: resumeForm.createSkillsSection,
+};
+
 let state = {
   personal: {
     visible: true,
-    createComponent: resumeForm.createPersonalSection,
   },
   education: {
     visible: false,
-    createComponent: resumeForm.createEducationSection,
   },
   experience: {
     visible: true,
-    createComponent: resumeForm.createExperienceSection,
   },
   projects: {
     visible: true,
-    createComponent: resumeForm.createProjectsSection,
   },
   skills: {
     visible: true,
-    createComponent: resumeForm.createSkillsSection,
   },
 };
 
 export function renderStateComponents() {
-  renderForm(state);
+  renderForm(state, STATE_COMPONENT_RENDERERS);
+  renderSectionEditor(state);
+}
+
+export function renderDialogState(newState = null) {
   renderSectionEditor(state);
 }

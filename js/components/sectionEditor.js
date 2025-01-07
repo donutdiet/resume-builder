@@ -2,7 +2,7 @@ import { createUnorderedList, createListItem } from "../helpers/list.js";
 import { createInput, createButton } from "../helpers/input.js";
 import { createParagraph } from "../helpers/text.js";
 
-export function createSectionEditor(state) {
+export function createSectionEditor(state, renderers) {
   const list = createUnorderedList();
 
   const personal = createListItem("personal");

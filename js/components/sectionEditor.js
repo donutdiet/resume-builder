@@ -7,6 +7,7 @@ export function createSectionEditor(state, renderers) {
 
   const personal = createListItem("personal");
   const personal_input = createInput("checkbox");
+  personal_input.name = "personal";
   if (state.personal.visible) personal_input.checked = true;
   const personal_label = createParagraph("Personal");
   personal.appendChild(personal_input);
@@ -15,6 +16,7 @@ export function createSectionEditor(state, renderers) {
 
   const education = createListItem("education");
   const education_input = createInput("checkbox");
+  education_input.name = "education";
   if (state.education.visible) education_input.checked = true;
   const education_label = createParagraph("Education");
   education.appendChild(education_input);
@@ -23,6 +25,7 @@ export function createSectionEditor(state, renderers) {
 
   const experience = createListItem("experience");
   const experience_input = createInput("checkbox");
+  experience_input.name = "experience";
   if (state.experience.visible) experience_input.checked = true;
   const experience_label = createParagraph("Experience");
   experience.appendChild(experience_input);
@@ -31,6 +34,7 @@ export function createSectionEditor(state, renderers) {
 
   const projects = createListItem("projects");
   const projects_input = createInput("checkbox");
+  projects_input.name = "projects";
   if (state.projects.visible) projects_input.checked = true;
   const projects_label = createParagraph("Projects");
   projects.appendChild(projects_input);
@@ -39,6 +43,7 @@ export function createSectionEditor(state, renderers) {
 
   const skills = createListItem("skills");
   const skills_input = createInput("checkbox");
+  skills_input.name = "skills";
   if (state.skills.visible) skills_input.checked = true;
   const skills_label = createParagraph("Skills");
   skills.appendChild(skills_input);

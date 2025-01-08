@@ -16,10 +16,20 @@ export function bindDialogEvents() {
   const saveDialogBtn = document.querySelector("#save-dialog-btn");
   const closeDialogBtn = document.querySelector("#close-dialog-btn");
 
-  saveDialogBtn.addEventListener("click", (e) => {});
+  saveDialogBtn.addEventListener("click", (e) => {
+    const checkboxes = dialog.querySelectorAll("input[type=checkbox]");
+    const newState = {};
+
+    checkboxes.forEach((checkbox) => {
+      newState[checkbox.name] = {};
+      newState[checkbox.name].visible = checkbox.checked;
+    });
+    renderStateComponents(newState);
+    dialog.close();
+  });
 
   // Section editor cancel button event
-  closeDialogBtn.addEventListener("click", (e) => {
+  closeDialogBtn.addEventListener("click", () => {
     dialog.close();
     // cancel potential changes and re-render section editor to previous state
     renderDialogState();

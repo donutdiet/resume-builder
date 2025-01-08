@@ -15,7 +15,7 @@ let state = {
     visible: true,
   },
   education: {
-    visible: false,
+    visible: true,
   },
   experience: {
     visible: true,
@@ -28,11 +28,22 @@ let state = {
   },
 };
 
-export function renderStateComponents() {
+export function renderStateComponents(newState = null) {
+  if (newState) {
+    // Update the state with properties from newState
+    for (const section in newState) {
+      // Unspecified attributes will remain the same
+      state[section] = {
+        ...state[section],
+        ...newState[section],
+      };
+    }
+  }
   renderForm(state, STATE_COMPONENT_RENDERERS);
   renderSectionEditor(state);
+  console.log(state);
 }
 
-export function renderDialogState(newState = null) {
+export function renderDialogState() {
   renderSectionEditor(state);
 }

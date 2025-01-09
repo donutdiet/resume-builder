@@ -1,3 +1,16 @@
+const SPECIAL_ATTRIBUTES = new Set(["checked", "disabled"]);
+
+// The presence of bpecial boolean attributes implies `true`
+// Example: <input checked="false"> may still be checked
+// Solution: value=false --> remove attribute
+function handleSpecialAttributes(input, key, value) {
+  if (value) {
+    input.setAttribute(key, "");
+  } else {
+    input.removeAttribute(key);
+  }
+}
+
 export function createInput(
   type,
   placeholder = null,
@@ -13,7 +26,11 @@ export function createInput(
   classList.forEach((className) => input.classList.add(className));
 
   for (let key in attributes) {
-    input.setAttribute(key, attributes[key]);
+    if (SPECIAL_ATTRIBUTES.has(key)) {
+      handleSpecialAttributes(input, key, !!attributes[key]);
+    } else {
+      input.setAttribute(key, attributes[key]);
+    }
   }
 
   return input;

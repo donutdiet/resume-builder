@@ -40,8 +40,8 @@ dialog > ul {
 dialog > ul > li {
   display: flex;
   gap: 4px;
-  background-color: hsl(0, 0%, 95%);
   padding: 4px 2px;
+  background-color: hsl(0, 0%, 95%);
 }
 
 ::backdrop {
@@ -57,8 +57,8 @@ section {
   flex-direction: column;
   gap: 10px;
   margin: 12px 0;
-  background-color: hsl(0, 0%, 95%);
   padding: 12px 4px;
+  background-color: hsl(0, 0%, 95%);
 }
 
 textarea {
@@ -69,4 +69,12 @@ textarea {
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+
+.draggable {
+  cursor: grab;
+}
+
+.draggable.dragging {
+  opacity: 0.5;
 }

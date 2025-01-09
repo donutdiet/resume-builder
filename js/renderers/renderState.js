@@ -41,7 +41,6 @@ export function renderStateComponents(newState = null) {
   }
   renderForm(state, STATE_COMPONENT_RENDERERS);
   renderSectionEditor(state);
-  console.log(state);
 }
 
 export function renderDialogState() {

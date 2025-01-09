@@ -1,5 +1,5 @@
-import { renderStateComponents } from "./render/renderState.js";
-import { bindHeaderEvents } from "./render/eventListeners.js";
+import { renderStateComponents } from "./renderers/renderState.js";
+import { bindHeaderEvents } from "./renderers/eventListeners.js";
 
 function initialize() {
   renderStateComponents();

@@ -5,7 +5,9 @@ import { createParagraph } from "../helpers/text.js";
 export function createSectionEditor(state) {
   const list = createUnorderedList();
 
-  const personal = createListItem("personal", ["draggable"]);
+  const personal = createListItem("personal", ["draggable"], {
+    draggable: true,
+  });
   const personal_input = createInput("checkbox", null, null, [], {
     name: "personal",
     checked: state.personal.visible,
@@ -15,7 +17,9 @@ export function createSectionEditor(state) {
   personal.appendChild(personal_label);
   list.appendChild(personal);
 
-  const education = createListItem("education", ["draggable"]);
+  const education = createListItem("education", ["draggable"], {
+    draggable: true,
+  });
   const education_input = createInput("checkbox", null, null, [], {
     name: "education",
     checked: state.education.visible,
@@ -25,7 +29,9 @@ export function createSectionEditor(state) {
   education.appendChild(education_label);
   list.appendChild(education);
 
-  const experience = createListItem("experience", ["draggable"]);
+  const experience = createListItem("experience", ["draggable"], {
+    draggable: true,
+  });
   const experience_input = createInput("checkbox", null, null, [], {
     name: "experience",
     checked: state.experience.visible,
@@ -35,7 +41,9 @@ export function createSectionEditor(state) {
   experience.appendChild(experience_label);
   list.appendChild(experience);
 
-  const projects = createListItem("projects", ["draggable"]);
+  const projects = createListItem("projects", ["draggable"], {
+    draggable: true,
+  });
   const projects_input = createInput("checkbox", null, null, [], {
     name: "projects",
     checked: state.projects.visible,
@@ -45,7 +53,9 @@ export function createSectionEditor(state) {
   projects.appendChild(projects_label);
   list.appendChild(projects);
 
-  const skills = createListItem("skills", ["draggable"]);
+  const skills = createListItem("skills", ["draggable"], {
+    draggable: true,
+  });
   const skills_input = createInput("checkbox", null, null, [], {
     name: "skills",
     checked: state.skills.visible,
@@ -55,13 +65,20 @@ export function createSectionEditor(state) {
   skills.appendChild(skills_label);
   list.appendChild(skills);
 
+  return list;
+}
+
+export function createButtonSection() {
+  const div = document.createElement("div");
+  div.classList.add("btn-section");
+
   const saveBtn = createButton("button", "Save", "save-dialog-btn", [], {
     autofocus: true,
   });
   const cancelBtn = createButton("button", "Cancel", "close-dialog-btn");
 
-  list.appendChild(saveBtn);
-  list.appendChild(cancelBtn);
+  div.appendChild(saveBtn);
+  div.appendChild(cancelBtn);
 
-  return list;
+  return div;
 }

@@ -15,8 +15,32 @@ export function bindHeaderEvents() {
 export function bindDialogEvents() {
   const saveDialogBtn = document.querySelector("#save-dialog-btn");
   const closeDialogBtn = document.querySelector("#close-dialog-btn");
+  const container = document.querySelector("ul");
+  const draggables = document.querySelectorAll(".draggable");
 
-  saveDialogBtn.addEventListener("click", (e) => {
+  draggables.forEach((draggable) => {
+    draggable.addEventListener("dragstart", () => {
+      draggable.classList.add("dragging");
+      console.log("dragging");
+    });
+
+    draggable.addEventListener("dragend", () => {
+      draggable.classList.remove("dragging");
+    });
+  });
+
+  container.addEventListener("dragover", (e) => {
+    e.preventDefault();
+    const afterElement = getDragAfterElement(container, e.clientY);
+    const dragging = document.querySelector(".dragging");
+    if (afterElement == null) {
+      container.appendChild(dragging);
+    } else {
+      container.insertBefore(dragging, afterElement);
+    }
+  });
+
+  saveDialogBtn.addEventListener("click", () => {
     const checkboxes = dialog.querySelectorAll("input[type=checkbox]");
     const newState = {};
 
@@ -51,4 +75,24 @@ export function bindDialogEvents() {
       renderDialogState();
     }
   });
+}
+
+function getDragAfterElement(container, y) {
+  const draggableElements = [
+    ...container.querySelectorAll(".draggable:not(.dragging)"),
+  ];
+
+  return draggableElements.reduce(
+    (closest, child) => {
+      const box = child.getBoundingClientRect();
+      const offset = y - box.top - box.height / 2;
+
+      if (offset < 0 && offset > closest.offset) {
+        return { offset: offset, element: child };
+      } else {
+        return closest;
+      }
+    },
+    { offset: Number.NEGATIVE_INFINITY }
+  ).element;
 }

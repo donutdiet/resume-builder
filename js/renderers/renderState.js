@@ -30,14 +30,17 @@ let state = {
 
 export function renderStateComponents(newState = null) {
   if (newState) {
-    // Update the state with properties from newState
+    const updatedState = {};
+    // Construct the updated state maintaining the section ordering of newState
     for (const section in newState) {
       // Unspecified attributes will remain the same
-      state[section] = {
+      updatedState[section] = {
         ...state[section],
         ...newState[section],
       };
     }
+    // Replace old state with updated state
+    state = updatedState;
   }
   renderForm(state, STATE_COMPONENT_RENDERERS);
   renderSectionEditor(state);

@@ -4,7 +4,8 @@
   box-sizing: border-box;
 }
 
-svg {
+svg,
+button {
   cursor: pointer;
 }
 
@@ -47,11 +48,8 @@ dialog > ul > li {
 
 .btn-section {
   display: flex;
-  gap: 8px;
-}
-
-.btn-section > button {
-  flex: 1;
+  flex-direction: column;
+  gap: 6px;
 }
 
 ::backdrop {

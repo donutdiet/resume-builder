@@ -21,7 +21,6 @@ export function bindDialogEvents() {
   draggables.forEach((draggable) => {
     draggable.addEventListener("dragstart", () => {
       draggable.classList.add("dragging");
-      console.log("dragging");
     });
 
     draggable.addEventListener("dragend", () => {
@@ -48,6 +47,10 @@ export function bindDialogEvents() {
       newState[checkbox.name] = {};
       newState[checkbox.name].visible = checkbox.checked;
     });
+
+    for (const key in newState) {
+      console.log(`${key}: ${newState[key].visible}`);
+    }
     renderStateComponents(newState);
     dialog.close();
   });

@@ -48,9 +48,6 @@ export function bindDialogEvents() {
       newState[checkbox.name].visible = checkbox.checked;
     });
 
-    for (const key in newState) {
-      console.log(`${key}: ${newState[key].visible}`);
-    }
     renderStateComponents(newState);
     dialog.close();
   });
